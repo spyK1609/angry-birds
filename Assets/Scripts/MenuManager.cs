@@ -23,6 +23,7 @@ public class MenuManager : MonoBehaviour
 
     void Start()
     {
+        
         playButton = GameObject.Find("Play 1 level button");
         selectLevelButton = GameObject.Find("Choose level button");
         settingButton = GameObject.Find("Settings button");

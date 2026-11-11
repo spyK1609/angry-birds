@@ -23,6 +23,7 @@ public class ThrowBird : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.bodyType = RigidbodyType2D.Kinematic;
         startPosition = GameObject.Find("Slingshot/StartPosition").transform;
+        slingshotBand = GameObject.Find("Slingshot").GetComponent<SlingshotBand>();
         animator = GetComponent<Animator>();
         animator.SetBool("isFlying", false);
     }
@@ -57,6 +58,10 @@ public class ThrowBird : MonoBehaviour
             {
                 hasStopped = true;
                 onStopped?.Invoke();
+                if (gameObject.transform.position.y < -2)
+                {
+                    Destroy(gameObject);
+                }
             }
         }
         else

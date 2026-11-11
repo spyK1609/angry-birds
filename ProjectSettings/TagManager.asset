@@ -9,6 +9,7 @@ TagManager:
   - Pig
   - Wood
   - TNT
+  - GSM
   layers:
   - Default
   - TransparentFX

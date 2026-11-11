@@ -26,11 +26,22 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        GameObject canvas = GameObject.Find("Canvas");
+        Transform trCanvas = canvas.transform;
         birdIndex = 0;
         LoadBird();
+        numText = GameObject.Find("Canvas/UI/Panel/Current level number").GetComponent<TextMeshProUGUI>();
         numText.text = SceneManager.sceneCount.ToString();
         pigs = GameObject.FindGameObjectsWithTag("Pig");
         pigsCount = pigs.Length;
+        pauseMenu = trCanvas.Find("Pause Menu").gameObject;
+        UIMenu = trCanvas.Find("UI").gameObject;
+        settingsMenu = trCanvas.Find("Settings").gameObject;
+        audioSource = cam.audioSource;
+        volumeSlider = canvas.GetComponentInChildren<Slider>(true);
+        winPanel = trCanvas.Find("Win Panel").gameObject;
+        failPanel = trCanvas.Find("Fail Panel").gameObject;
+        
     }
 
     void Update()
